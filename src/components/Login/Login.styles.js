@@ -46,25 +46,6 @@ export const Container = styled.div`
     }
   }
 
-  button {
-    width: 70%;
-    padding: 0.8rem;
-    margin-top: 1rem;
-    background-color: ${({ theme }) => theme.colors.buttonBackground};
-    color: ${({ theme }) => theme.colors.buttonText};
-    border: none;
-    border-radius: 8px;
-    font-size: 1.2rem;
-    cursor: pointer;
-    box-shadow: 0 4px 15px ${({ theme }) => theme.colors.primary};
-    transition: transform 0.3s, box-shadow 0.3s;
-
-    &:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 30px ${({ theme }) => theme.colors.primary};
-    }
-  }
-
   @media (max-width: 768px) {
     width: 100vw;
     height: 100vh;
@@ -76,6 +57,24 @@ export const Container = styled.div`
     input, button {
       width: 80%;
     }
+  }
+`;
+
+export const ButtonLogin = styled.button`
+  width: 70%;
+  padding: 0.8rem;
+  margin: 0.8rem 0;
+  border: none;
+  background: ${({ theme }) => theme.colors.primary};
+  color: ${({ theme }) => theme.colors.buttonText};
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: ${({ theme }) => theme.colors.neonGlow};
   }
 `;
 

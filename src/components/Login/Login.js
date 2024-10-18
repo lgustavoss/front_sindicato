@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { login } from '../../api/auth'; // Importe a função de login
 import { useNavigate } from 'react-router-dom'; // Importe useNavigate
-import { Container, FooterContainer } from './Login.styles'; // Importa o styled component do container e do rodapé
+import { ButtonLogin, Container, FooterContainer } from './Login.styles'; // Importa o styled component do container e do rodapé
 import ThemeToggle from '../ThemeToggle/ThemeToggle'; // Importe o ThemeToggle
 
 const Login = () => {
@@ -50,13 +50,13 @@ const Login = () => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <button type="submit">Entrar</button>
+        <ButtonLogin type="submit">Entrar</ButtonLogin>
         {error && <p>{error}</p>}
       </form>
       
       {/* Adicionando o ThemeToggle no rodapé */}
       <FooterContainer>
-        <ThemeToggle /> {/* Botão de alternância de tema */}
+        <ThemeToggle />
       </FooterContainer>
     </Container>
   );
