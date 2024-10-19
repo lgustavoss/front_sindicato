@@ -26,3 +26,34 @@ export const login = async (username, password) => {
         throw error;
         }
     };
+
+// Função para validar o token de acesso
+export const validateToken = async (token) => {
+    try {
+        const response = await axios.post(`${API_URL}/token/verify/`, {
+        token: token,
+        });
+        return response.status === 200; // Retorna true se o status for 200
+    } catch (error) {
+        console.error('Erro ao validar o token:', error.response ? error.response.data : error.message);
+        return false;
+    }
+};
+
+// Função para renovar o token de acesso
+export const refreshToken = async () => {
+    const refreshToken = localStorage.getItem('refresh_token');
+    if (!refreshToken) {
+        return null;
+    }
+
+    try {
+        const response = await axios.post(`${API_URL}/token/refresh/`, {
+        refresh: refreshToken,
+        });
+        return response.data.access;
+    } catch (error) {
+        console.error('Erro ao renovar o token:', error.response ? error.response.data : error.message);
+        return null;
+    }
+};

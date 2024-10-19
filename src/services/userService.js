@@ -1,4 +1,4 @@
-mport { useNavigate } from 'react-router-dom'; // Importe useNavigate no seu componente
+import { useNavigate } from 'react-router-dom'; // Importe useNavigate no seu componente
 
 export const fetchUsers = async () => {
   const accessToken = localStorage.getItem('access_token');
