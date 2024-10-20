@@ -25,7 +25,7 @@ export const login = async (username, password) => {
             });
 
             // Armazena os dados do usuário no localStorage
-            localStorage.setItem('user', JSON.stringify(userResponse.data));
+            localStorage.setItem('first_name', JSON.stringify(userResponse.data));
 
             return response.data;
         } else {
