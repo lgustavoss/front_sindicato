@@ -5,8 +5,8 @@ import { API_URL } from './config';
 export const login = async (username, password) => {
     try {
         const response = await axios.post(`${API_URL}/token/`, {
-        username,
-        password,
+            username,
+            password,
         });
 
         console.log('Resposta do servidor:', response.data); // Log pra inspecionar a resposta do servidor
@@ -16,6 +16,17 @@ export const login = async (username, password) => {
             // Armazena os tokens no localStorage
             localStorage.setItem('access_token', response.data.access);
             localStorage.setItem('refresh_token', response.data.refresh);
+
+            // Faz uma nova requisição para obter os detalhes do usuário
+            const userResponse = await axios.get(`${API_URL}/usuario/users/1/`, {
+                headers: {
+                    Authorization: `Bearer ${response.data.access}`,
+                },
+            });
+
+            // Armazena os dados do usuário no localStorage
+            localStorage.setItem('user', JSON.stringify(userResponse.data));
+
             return response.data;
         } else {
             // Lança um erro caso os tokens não estejam presentes
@@ -24,8 +35,8 @@ export const login = async (username, password) => {
     } catch (error) {
         console.error('Erro ao fazer login:', error.response ? error.response.data : error.message);
         throw error;
-        }
-    };
+    }
+};
 
 // Função para validar o token de acesso
 export const validateToken = async (token) => {

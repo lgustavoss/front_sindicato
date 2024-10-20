@@ -9,6 +9,7 @@ const lightTheme = {
     buttonText: '#ffffff', // Texto branco nos botões
     feedbackSuccess: '#28a745', // Cor para feedback positivo (sucesso)
     feedbackError: '#dc3545', // Cor para feedback negativo (erro)
+    hoverLight: '#e0e0e0', // Cor de fundo ao passar o mouse para o tema claro
   },
   fonts: {
     titleFont: "'Orbitron', sans-serif", // Fonte tech para títulos
@@ -27,6 +28,9 @@ const darkTheme = {
     buttonText: '#ffffff', // Texto branco nos botões
     feedbackSuccess: '#28a745', // Cor para feedback positivo (sucesso)
     feedbackError: '#dc3545', // Cor para feedback negativo (erro)
+    activeBackground: '#132331', // Fundo ao clicar
+    hoverBackground: '#1D242B', // Fundo ao passar o mouse
+    // Removendo as cores personalizadas do dropdown
   },
   fonts: {
     titleFont: "'Orbitron', sans-serif", // Fonte tech para títulos

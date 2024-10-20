@@ -1,25 +1,47 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { NavbarContainer, WelcomeMessage, LogoutButton } from './Navbar.styles';
-import ThemeToggle from '../ThemeToggle/ThemeToggle'; // Importe o ThemeToggle
+import { NavbarContainer, UserMenu, UserDropdown, UserName } from './Navbar.styles';
+import ThemeToggle from '../ThemeToggle/ThemeToggle';
 
 const Navbar = ({ user }) => {
   const navigate = useNavigate();
+  const [dropdownOpen, setDropdownOpen] = useState(false);
 
   const handleLogout = () => {
-    // Remover os tokens do localStorage
+    localStorage.removeItem('user');
     localStorage.removeItem('access_token');
     localStorage.removeItem('refresh_token');
-    
-    // Redirecionar para a página de login
     navigate('/login');
+  };
+
+  const toggleDropdown = () => {
+    setDropdownOpen((prev) => !prev);
   };
 
   return (
     <NavbarContainer>
-      <WelcomeMessage>Seja bem-vindo, {user}. Não é você?</WelcomeMessage>
-      <LogoutButton onClick={handleLogout}>Sair</LogoutButton>
-      <ThemeToggle /> {/* Adicione o ThemeToggle aqui */}
+      <div>
+        {/* Aqui você pode adicionar outros itens da Navbar se necessário */}
+      </div>
+      <div style={{ display: 'flex', alignItems: 'center', position: 'relative' }}> {/* Adicionando position: relative */}
+        {user ? (
+          <>
+            <UserMenu onClick={toggleDropdown} style={{ marginRight: '10px' }}>
+              {user.first_name || user.username}
+            </UserMenu>
+            {dropdownOpen && (
+              <UserDropdown>
+                <UserName>{user.first_name}</UserName>
+                <button onClick={() => navigate('/perfil')}>Perfil</button>
+                <button onClick={handleLogout}>Sair</button>
+              </UserDropdown>
+            )}
+          </>
+        ) : (
+          <div>Usuário não logado</div>
+        )}
+        <ThemeToggle />
+      </div>
     </NavbarContainer>
   );
 };
