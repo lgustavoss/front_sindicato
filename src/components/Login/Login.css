@@ -1,0 +1,80 @@
+.login-page {
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  .login-container {
+    width: 30%;
+    min-width: 300px; /* Define um tamanho mínimo para a div de login */
+    padding: 40px;
+    background-color: rgba(255, 255, 255, 0.8); /* Fundo branco com opacidade */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px 0 0 8px; /* Bordas arredondadas apenas no lado esquerdo */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; /* Centraliza os elementos horizontalmente */
+    border-right: 5px solid transparent; /* Borda transparente para o gradiente */
+    background-clip: padding-box, border-box; /* Clipping para o gradiente */
+    background-origin: padding-box, border-box; /* Origem do gradiente */
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0)), linear-gradient(to right, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)); /* Gradiente para a borda */
+  }
+  
+  .login-header {
+    text-align: center;
+    margin-bottom: 24px;
+  }
+  
+  .login-logo img {
+    width: 250px;
+    height: 250px;
+  }
+  
+  .login-title {
+    display: block;
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 8px;
+  }
+  
+  .login-welcome {
+    display: block;
+    font-size: 16px;
+    color: #888;
+    margin-top: 4px;
+  }
+  
+  .login-form {
+    width: 100%; /* Garante que o formulário ocupe toda a largura disponível */
+    max-width: 300px; /* Define um tamanho máximo para o formulário */
+  }
+  
+  .login-form-button {
+    width: 100%;
+  }
+  
+  .login-image {
+    width: 70%;
+    background-image: url('../../../public/login-background.jpeg'); /* Caminho relativo à pasta public */
+    background-size: cover;
+    background-position: center;
+  }
+  
+  @media (max-width: 768px) {
+    .login-page {
+      flex-direction: column;
+    }
+  
+    .login-container {
+      width: 100%;
+      min-width: unset; /* Remove o tamanho mínimo em telas menores */
+      border-radius: 8px; /* Bordas arredondadas em todos os lados */
+      border-right: none; /* Remove a borda direita */
+      background-image: none; /* Remove o gradiente */
+    }
+  
+    .login-image {
+      display: none; /* Esconde a imagem em telas menores */
+    }
+  }

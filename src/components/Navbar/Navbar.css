@@ -1,0 +1,45 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 24px;
+    background-color: #fff; /* Cor padrão do Ant Design Pro para o Header */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Sombra para a navbar */
+  }
+  
+  .logo {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo-img {
+    height: 80px; /* Ajusta a altura da imagem */
+    margin-right: 8px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo-text {
+    display: none; /* Esconde o texto por padrão */
+    color: #000; /* Cor do texto do logo */
+    font-size: 18px; /* Ajusta o tamanho do texto */
+    font-weight: bold;
+    margin: 0;
+    line-height: 32px; /* Alinha verticalmente com a imagem */
+  }
+  
+  .right-content {
+    display: flex;
+    align-items: center;
+  }
+  
+  .user-dropdown {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  .username {
+    color: #000; /* Cor do texto do nome do usuário */
+    margin-left: 8px;
+  }
