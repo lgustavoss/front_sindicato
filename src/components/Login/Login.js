@@ -44,7 +44,7 @@ const Login = () => {
           <span className="login-logo">
             <img alt="logo" src="/logo.svg" />
           </span>
-          <span className="login-title">Bem-vindo ao sistema</span>
+          <span className="login-title">Bem-vindo ao sistema!</span>
           <span className="login-welcome">Sintramacon-DF</span>
         </div>
         <Form
@@ -57,7 +57,7 @@ const Login = () => {
             name="username"
             rules={[{ required: true, message: 'Por favor, insira seu usuário!' }]}
           >
-            <Input placeholder="Usuário" />
+            <Input placeholder="Usuário" defaultValue={username} />
           </Form.Item>
           <Form.Item
             name="password"
@@ -66,7 +66,7 @@ const Login = () => {
             <Input.Password placeholder="Senha" />
           </Form.Item>
           <Form.Item name="remember" valuePropName="checked">
-            <Checkbox>Lembre-me</Checkbox>
+            <Checkbox checked={remember} onChange={(e) => setRemember(e.target.checked)}>Lembre-me</Checkbox>
           </Form.Item>
           <Form.Item>
             <Button type="primary" htmlType="submit" className="login-form-button" loading={loading}>

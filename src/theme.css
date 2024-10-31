@@ -1,0 +1,19 @@
+:root {
+  /* Variáveis de tema claro */
+  --primary-color: #1890ff;
+  --secondary-color: #e6f7ff;
+  --hover-color: #bae7ff;
+  --text-color: #000;
+  --background-color: #fff;
+  --box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme='dark'] {
+  /* Variáveis de tema escuro */
+  --primary-color: #1d1d1d;
+  --secondary-color: #333;
+  --hover-color: #444;
+  --text-color: #fff;
+  --background-color: #000;
+  --box-shadow: 0 2px 8px rgba(255, 255, 255, 0.1);
+}
